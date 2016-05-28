@@ -1,12 +1,140 @@
+// Info
+var bio = {
+  "name": "Victor Sagrista Lopez",
+  "role": "Front End Developer",
+  "pictureUrl": "./images/developer.jpg",
+  "welcomeMessage": "Welcome to my interactive resume page",
+  "skills": ["Javacript", "angular", "react", "HTML", "CSS", "rails", "grunt"]
+}
 
-var formattedName = 'Victor Sagrista Lopez';
-var formattedRole = 'Software Developer';
-HTMLheaderName= HTMLheaderName.replace('%data%',formattedName);
-HTMLheaderRole = HTMLheaderRole.replace('%data%',formattedRole);
-$('#header').prepend(HTMLheaderName);
+var work = [
+  {
+	  "title": "Front End Developer",
+	  "employer": "Novicap",
+	  "dates": "December, May 2016",
+	  "location": "Barcelona",
+	  "description": "In charge of the front end site"
+  },
+  {
+	  "title": "Ruby developer and Teaching Assistant",
+	  "employer": "Ironhack",
+	  "dates": "October - December 2015",
+	  "location": "Barcelona",
+	  "description": "Teaching and reviewing code in ruby and rails"
+	},
+	{
+		"title": "World Language Teacher",
+	  "employer": "DC Public Schools",
+	  "dates": "September 2012 - September 2015",
+	  "location": "Washington DC, USA",
+	  "description": "In charge of teaching Spanish at the whole school"
+	}
+];
+
+var school = 
+  {"schools":
+	  [
+			{
+				"name": "Ironhack",
+			  "degree": "Coding Bootcamp Program",
+			  "dates": "August - October 2015",
+			  "location": "Barcelona, Spain",
+			  "major": "HTML, CSS, Ruby on Rails, Javascript"
+			},
+			{
+				"name": "American University",
+			  "degree": "Social Context of Bilingual Learners",
+			  "dates": "September - December 2013",
+			  "location": "Washington DC, USA",
+			  "major": "Graduate coursework"
+			},
+		  {
+			  "name": "Pablo de Olavide University",
+			  "degree": "MA The Humanities",
+			  "dates": "June 2008, June 2010",
+			  "location": "Seville, Spain",
+			  "major": "Spanish Teaching as a Foreign Language"
+			},
+		  {
+			  "name": "University of Seville",
+			  "degree": "BA Elementay Education and Teaching",
+			  "dates": "June 2003, June 2007",
+			  "location": "Seville, Spain",
+			  "major": "ESL and Early Childhood Education"
+		  }
+		],
+  "onlineSchool": 
+  	{
+  		"name": "Front End Developer Nanogree",
+  		"school": "Udacity",
+  		"dates": "Summer 2016",
+  		"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+  	}
+}
+
+
+// Header
+HTMLheaderName = HTMLheaderName.replace('%data%',bio.name);
+HTMLheaderRole = HTMLheaderRole.replace('%data%',bio.role);
+HTMLbioPic = HTMLbioPic.replace('%data%',bio.pictureUrl);
+HTMLwelcomeMsg = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+
 $('#header').prepend(HTMLheaderRole);
+$('#header').prepend(HTMLheaderName);
+$('#header').append(HTMLbioPic);
+$('#header').append(HTMLwelcomeMsg);
+$('#header').append(HTMLskillsStart);
 
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+// Skills 
+bio.skills.forEach(function(skill) {
+	var newSkill = HTMLskills.replace('%data%',skill);
+	$('#skills').append(newSkill);
+});
+
+// Work
+$('#workExperience').append(HTMLworkStart);
+
+work.forEach(function(work){
+
+	var employer = HTMLworkEmployer.replace('%data%',work.employer);
+	var title = HTMLworkTitle.replace('%data%',work.title);
+	var dates = HTMLworkDates.replace('%data%',work.dates);
+	var location = HTMLworkLocation.replace('%data%',work.dates)
+	var description = HTMLworkDescription.replace('%data%',work.description);
+
+	$('.work-entry').append(employer + title);
+	$('.work-entry').append(dates + location);
+  $('.work-entry').append(description);
+
+})
+
+// Education 
+
+var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineURL = '<br><a href="#">%data%</a>';
+
+$('#education').append(HTMLschoolStart);
+
+school.schools.forEach(function(school){
+
+	var name = HTMLschoolName.replace('%data%',school.name);
+	var degree = HTMLschoolDegree.replace('%data%',school.degree);
+	var dates = HTMLschoolDates.replace('%data%',school.dates);
+	var location = HTMLschoolLocation.replace('%data%',school.location)
+	var major = HTMLschoolMajor.replace('%data%',school.major);
+
+	$('.education-entry').append(name + degree);
+	$('.education-entry').append(dates + location);
+  $('.education-entry').append(major);
+
+})
+$('.education-entry').append(HTMLonlineClasses);
+
+console.log(school['onlineSchool'])
+$('.education-entry').append(HTMLonlineTitle.replace('%data%',school.onlineSchool.name) + HTMLonlineSchool.replace('%data%',school.onlineSchool.school));
+$('.education-entry').append(HTMLonlineDates.replace('%data%',school.onlineSchool.dates));
+$('.education-entry').append(HTMLonlineURL.replace('%data%',school.onlineSchool.url));
 
