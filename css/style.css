@@ -22,6 +22,16 @@ img {
   overflow: auto;
 }
 
+.intern-btn {
+  margin-top: 15px;
+  float: right;
+  width: 110px;
+  height: 35px;
+  cursor: pointer;
+  background: #00BCD4;
+  border-style: outset;
+}
+
 .education-entry,
 .work-entry,
 .project-entry {

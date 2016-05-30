@@ -1,6 +1,6 @@
 // Info
 var bio = {
-  "name": "Victor Sagrista Lopez",
+  "name": "Victor Sagrista",
   "role": "Front End Developer",
   "pictureUrl": "./images/developer.jpg",
   "welcomeMessage": "Welcome to my interactive resume page",
@@ -105,9 +105,11 @@ HTMLwelcomeMsg = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 
 $('#header').prepend(HTMLheaderRole);
 $('#header').prepend(HTMLheaderName);
+$('#header').prepend(internationalizeButton);
 $('#header').append(HTMLbioPic);
 $('#header').append(HTMLwelcomeMsg);
 $('#header').append(HTMLskillsStart);
+
 
 // Skills 
 
@@ -181,3 +183,10 @@ $('.education-entry').append(HTMLonlineClasses);
 $('.education-entry').append(HTMLonlineTitle.replace('%data%',school.onlineSchool.name) + HTMLonlineSchool.replace('%data%',school.onlineSchool.school));
 $('.education-entry').append(HTMLonlineDates.replace('%data%',school.onlineSchool.dates));
 $('.education-entry').append(HTMLonlineURL.replace('%data%',school.onlineSchool.url));
+
+function inName(name) {
+	var nameArr = name.split(' ');
+	var firstName = nameArr[0].charAt(0).toUpperCase() + nameArr[0].replace(name.charAt(0),'');
+	var lastName = nameArr[1].toUpperCase();
+	return firstName + ' ' + lastName;
+}

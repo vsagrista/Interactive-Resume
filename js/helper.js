@@ -56,7 +56,7 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001" id="online-course-url">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+var internationalizeButton = '<button class="intern-btn">Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
@@ -67,7 +67,14 @@ $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
     var iName = inName($name.text()) || function(){};
-    $name.html(iName);
+    if($('button').text() === 'Standard') {
+      $name.html(bio.name);
+      $('button').text('Internationalize');  
+    }
+    else {
+      $name.html(iName);
+      $('button').text('Standard');  
+    }
   });
 });
 
@@ -86,8 +93,13 @@ function logClicks(x,y) {
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
-$(document).click(function(loc) {
+$(document).click(function(event) {
   // your code goes here!
+
+  var x = event.pageX;
+  var y = event.pageY;
+
+  logClicks(x,y);
 });
 
 
