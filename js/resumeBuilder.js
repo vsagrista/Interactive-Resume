@@ -4,32 +4,38 @@ var bio = {
   "role": "Front End Developer",
   "pictureUrl": "./images/developer.jpg",
   "welcomeMessage": "Welcome to my interactive resume page",
-  "skills": ["Javacript", "angular", "react", "HTML", "CSS", "rails", "grunt"]
+  "skills": ["Javacript", "angular", "react", "HTML", "CSS", "rails", "grunt"],
+  "contacts": {
+  	"location": "Barcelona"
+  }
 }
 
-var work = [
-  {
-	  "title": "Front End Developer",
-	  "employer": "Novicap",
-	  "dates": "December, May 2016",
-	  "location": "Barcelona",
-	  "description": "In charge of the front end site"
-  },
-  {
-	  "title": "Ruby developer and Teaching Assistant",
-	  "employer": "Ironhack",
-	  "dates": "October - December 2015",
-	  "location": "Barcelona",
-	  "description": "Teaching and reviewing code in ruby and rails"
-	},
-	{
-		"title": "World Language Teacher",
-	  "employer": "DC Public Schools",
-	  "dates": "September 2012 - September 2015",
-	  "location": "Washington DC, USA",
-	  "description": "In charge of teaching Spanish at the whole school"
-	}
-];
+var work = {
+	"jobs": [
+	  {
+		  "title": "Front End Developer",
+		  "employer": "Novicap",
+		  "dates": "December, May 2016",
+		  "location": "Barcelona",
+		  "description": "In charge of the front end site"
+	  },
+	  {
+		  "title": "Ruby developer and Teaching Assistant",
+		  "employer": "Ironhack",
+		  "dates": "October - December 2015",
+		  "location": "Barcelona",
+		  "description": "Teaching and reviewing code in ruby and rails"
+		},
+		{
+			"title": "World Language Teacher",
+		  "employer": "DC Public Schools",
+		  "dates": "September 2012 - September 2015",
+		  "location": "Washington DC, USA",
+		  "description": "In charge of teaching Spanish at the whole school"
+		}
+  ]
+}
+;
 
 var projects = {
 	"project": [ 
@@ -52,6 +58,22 @@ var projects = {
 	   "img":"./images/quote.png"
 		}
 	]
+}
+
+projects.display = function() {
+	$('#projects').append(HTMLprojectStart);
+	projects.project.forEach(function(project,index){
+	  var img = HTMLprojectImage.replace('%data%',project.img);
+		var title = HTMLprojectTitle.replace('%data%',project.title);
+		var dates = HTMLprojectTitle.replace('%data%',project.dates);
+	  var description = HTMLprojectDescription.replace('%data%',project.description);
+	  var innerEntry = HTMLinnerEntry.replace('%data%',index);
+	  $('.project-entry').append(innerEntry);
+	  $('.inner-entry-'+index).append(img);
+	  $('.inner-entry-'+index).append(title);
+	  $('.inner-entry-'+index).append(dates);
+	  $('.inner-entry-'+index).append(description);
+	});
 }
 
 var school = 
@@ -121,7 +143,7 @@ bio.skills.forEach(function(skill) {
 // Work
 $('#workExperience').append(HTMLworkStart);
 
-work.forEach(function(work){
+work.jobs.forEach(function(work){
 
 	var employer = HTMLworkEmployer.replace('%data%',work.employer);
 	var title = HTMLworkTitle.replace('%data%',work.title);
@@ -137,23 +159,7 @@ work.forEach(function(work){
 
 // Projects
 
-$('#projects').append(HTMLprojectStart);
-
-projects.project.forEach(function(project,index){
-
-  var img = HTMLprojectImage.replace('%data%',project.img);
-	var title = HTMLprojectTitle.replace('%data%',project.title);
-	var dates = HTMLprojectTitle.replace('%data%',project.dates);
-  var description = HTMLprojectDescription.replace('%data%',project.description);
-  var innerEntry = HTMLinnerEntry.replace('%data%',index);
-
-  $('.project-entry').append(innerEntry);
-  $('.inner-entry-'+index).append(img);
-  $('.inner-entry-'+index).append(title);
-  $('.inner-entry-'+index).append(dates);
-  $('.inner-entry-'+index).append(description);
-
-});
+projects.display();
 
 // Education 
 
@@ -185,8 +191,11 @@ $('.education-entry').append(HTMLonlineDates.replace('%data%',school.onlineSchoo
 $('.education-entry').append(HTMLonlineURL.replace('%data%',school.onlineSchool.url));
 
 function inName(name) {
-	var nameArr = name.split(' ');
+	var nameArr = name.trim().split(' ');
 	var firstName = nameArr[0].charAt(0).toUpperCase() + nameArr[0].replace(name.charAt(0),'');
 	var lastName = nameArr[1].toUpperCase();
 	return firstName + ' ' + lastName;
 }
+
+
+$('#mapDiv').append(googleMap);
