@@ -97,6 +97,7 @@ var school =
 
 
 // Header
+
 HTMLheaderName = HTMLheaderName.replace('%data%',bio.name);
 HTMLheaderRole = HTMLheaderRole.replace('%data%',bio.role);
 HTMLbioPic = HTMLbioPic.replace('%data%',bio.pictureUrl);
@@ -109,9 +110,10 @@ $('#header').append(HTMLwelcomeMsg);
 $('#header').append(HTMLskillsStart);
 
 // Skills 
+
 bio.skills.forEach(function(skill) {
-	var newSkill = HTMLskills.replace('%data%',skill);
-	$('#skills').append(newSkill);
+	var nextSkill = HTMLskills.replace('%data%',skill);
+	$('#skills').append(nextSkill);
 });
 
 // Work
@@ -136,25 +138,20 @@ work.forEach(function(work){
 $('#projects').append(HTMLprojectStart);
 
 projects.project.forEach(function(project,index){
-  console.log(index)
+
   var img = HTMLprojectImage.replace('%data%',project.img);
 	var title = HTMLprojectTitle.replace('%data%',project.title);
 	var dates = HTMLprojectTitle.replace('%data%',project.dates);
   var description = HTMLprojectDescription.replace('%data%',project.description);
-  
-  $('.project-entry').append('<div class="inner-entry inner-entry-'+index+'"></div>')
-  
+  var innerEntry = HTMLinnerEntry.replace('%data%',index);
 
+  $('.project-entry').append(innerEntry);
   $('.inner-entry-'+index).append(img);
   $('.inner-entry-'+index).append(title);
   $('.inner-entry-'+index).append(dates);
   $('.inner-entry-'+index).append(description);
 
-
 });
-
-
-
 
 // Education 
 
@@ -180,7 +177,7 @@ school.schools.forEach(function(school){
 
 })
 
-	$('.education-entry').append(HTMLonlineClasses);
-	$('.education-entry').append(HTMLonlineTitle.replace('%data%',school.onlineSchool.name) + HTMLonlineSchool.replace('%data%',school.onlineSchool.school));
-	$('.education-entry').append(HTMLonlineDates.replace('%data%',school.onlineSchool.dates));
-	$('.education-entry').append(HTMLonlineURL.replace('%data%',school.onlineSchool.url));
+$('.education-entry').append(HTMLonlineClasses);
+$('.education-entry').append(HTMLonlineTitle.replace('%data%',school.onlineSchool.name) + HTMLonlineSchool.replace('%data%',school.onlineSchool.school));
+$('.education-entry').append(HTMLonlineDates.replace('%data%',school.onlineSchool.dates));
+$('.education-entry').append(HTMLonlineURL.replace('%data%',school.onlineSchool.url));
