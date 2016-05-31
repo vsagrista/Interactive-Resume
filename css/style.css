@@ -264,11 +264,12 @@ span {
   .inner-entry {
     width: 100%;
   }
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
+  .img-div {
+    width: 65%;
   }
+
+
 }
 
 #map {
@@ -283,9 +284,28 @@ span {
   padding-bottom: 5%;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
+@media only screen and (max-width: 375px) {
+  .row {
+    margin-top: -15px;
+  }
+  .img-div {
+    margin-top: 15px;
+    height: 150px;
+    margin-right: -15px;
+    width: 90%;
+  }
+  .subheader {
+    display: inline-block;
+  }
+  .top-contacts {
     display: block;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .top-contacts li {
+    font-size: 15px;
+  }
+  hr {
+    margin: 5px 0 5px 0 !important;
   }
 }
