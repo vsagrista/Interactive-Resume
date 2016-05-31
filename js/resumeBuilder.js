@@ -108,12 +108,10 @@ function headerDisplay() {
 	HTMLheaderName = HTMLheaderName.replace('%data%',bio.name);
 	HTMLheaderRole = HTMLheaderRole.replace('%data%',bio.role);
 	HTMLbioPic = HTMLbioPic.replace('%data%',bio.pictureUrl);
-	// HTMLwelcomeMsg = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 	$('#header').prepend(HTMLheaderRole);
 	$('#header').prepend(HTMLheaderName);
-	$('#header').prepend(internationalizeButton);
+	$('#header').prepend(HTMLchangeLanguage);
 	$('#img-div').append(HTMLbioPic);
-	// $('#skills-div').append(HTMLwelcomeMsg);
 	$('#skills-div').append(HTMLskillsStart);
 }
 

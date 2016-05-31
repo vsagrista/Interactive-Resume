@@ -26,14 +26,21 @@ img {
   overflow: auto;
 }
 
-.intern-btn {
+.lang-change {
   margin-top: 15px;
   float: right;
-  width: 110px;
-  height: 35px;
-  cursor: pointer;
-  background: #00BCD4;
-  border-style: outset;
+  color: #00BCD4;
+  display: inline;
+  padding: 0 2px;
+}
+.selected {
+  font-style: italic;
+}
+
+.vertical-bar {
+  margin-left: -2px;
+  height: 25px;
+  border-right: 1px solid #00BCD4;
 }
 
 .education-entry,
@@ -136,12 +143,6 @@ a {
   margin-top: 10px;
   display: block;
 }
-/*
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  line-height: 28px;
-}*/
 
 .skills-h3 {
   padding: 0;
@@ -160,8 +161,6 @@ a {
   color: #333;
 }
 
-/*first change the ones that had orange text for black text
-*/
 .white-text {
   color: #fff;
 }
@@ -176,7 +175,6 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 .header {
   background-color: #607D8B;
 }
