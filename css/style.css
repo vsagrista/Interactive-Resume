@@ -208,6 +208,8 @@ ul {
 
 .img-div {
   height: 200px;
+  width: 70%;
+  float: right;
 }
 
 span {
@@ -230,6 +232,7 @@ span {
   padding: 3px;
   margin: 1px;
   color: #333;
+  width: 80%;
 }
 
 /* Media queries to handle various device widths */
@@ -240,8 +243,15 @@ span {
   }
 }
 
-@media only screen and (max-width:900px) {
-  
+@media only screen and (max-width:990px) {
+ .row {
+    display: flex;
+ } 
+ .img-div {
+    float: right;
+   /* border: 1px solid white;*/
+    width: 50%;
+ }
 }
 
 @media only screen and (max-width: 750px) {

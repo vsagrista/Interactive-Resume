@@ -112,7 +112,7 @@ function headerDisplay() {
 	$('#header').prepend(HTMLheaderName);
 	$('#header').prepend(HTMLchangeLanguage);
 	$('#img-div').append(HTMLbioPic);
-	$('#skills-div').append(HTMLskillsStart);
+	$('.chart').append(HTMLskillsStart);
 }
 
 function contactInfoDisplay() {
@@ -190,12 +190,12 @@ function inName(name) {
 }
 
 var chartData = [4, 8, 15, 16, 23, 42];
-var scores = [4,5,7,8,9,10,8]
+var scores = [4,5,7,8,9,7,8]
 var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(bio.skills);
 var barEnter = barUpdate.enter().append("div");
-barEnter.style("width", function(d,i) { return scores[i] * 50 + "px"; });
+barEnter.style("width", function(d,i) { return scores[i] * 10 + "%"; });
 barEnter.text(function(d) { return d; });
 
 headerDisplay();
