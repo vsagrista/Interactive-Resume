@@ -4,7 +4,8 @@ var bio = {
   "role": "Front End Developer",
   "pictureUrl": "./images/victor.png",
   "welcomeMessage": "Welcome to my interactive resume page",
-  "skills": ["Javacript", "Angular", "Rails", "HTML", "CSS", "Grunt", "Handlebars"],
+  "skills": ["Grunt", "Handlebars","Angular","CSS","HTML", "Rails", "Javacript"],
+  "scores": [3,4,5,6,7,8,9],
   "contacts": {
   	"mobile": "+34-615-585-539",
   	"email": "victorsagristalopez@gmail.com",
@@ -51,7 +52,7 @@ var projects = {
 		{
 		 "title":"Automated Posts",
 	   "description": "An app to schedule tweets. Javascript & RoR",
-	   "dates":"November 2015 - January 2016",
+	   "dates":"Nov 2015 - January 2016",
 	   "img":"./images/robot.png"
 		},
 		{
@@ -59,6 +60,12 @@ var projects = {
 	   "description": "Front End project that displays random quotes from an API",
 	   "dates":"February 2016",
 	   "img":"./images/quote.png"
+		},
+		{
+		 "title":"Random FlickR Search",
+	   "description": "Front End project that displays random FlickR chosen images",
+	   "dates":"April 2016",
+	   "img":"./images/flickr.png"
 		}
 	]
 }
@@ -170,11 +177,10 @@ projects.display = function() {
 	projects.project.forEach(function(project,index){
 	  var img = HTMLprojectImage.replace('%data%',project.img);
 		var title = HTMLprojectTitle.replace('%data%',project.title);
-		var dates = HTMLprojectTitle.replace('%data%',project.dates);
+		var dates = HTMLprojectDates.replace('%data%',project.dates);
 	  var description = HTMLprojectDescription.replace('%data%',project.description);
 	  var innerEntry = HTMLinnerEntry.replace('%data%',index);
 	  $('.project-entry').append(innerEntry);
-	  $('.inner-entry-'+index).append(img);
 	  $('.inner-entry-'+index).append(title);
 	  $('.inner-entry-'+index).append(dates);
 	  $('.inner-entry-'+index).append(description);
@@ -189,13 +195,12 @@ function inName(name) {
 	return firstName + ' ' + lastName;
 }
 
-var chartData = [4, 8, 15, 16, 23, 42];
-var scores = [4,5,7,8,9,7,8]
+//var scores = [4,5,7,8,9,7,8]
 var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(bio.skills);
 var barEnter = barUpdate.enter().append("div");
-barEnter.style("width", function(d,i) { return scores[i] * 10 + "%"; });
+barEnter.style("width", function(d,i) { return bio.scores[i] * 10 + "%"; });
 barEnter.text(function(d) { return d; });
 
 headerDisplay();
