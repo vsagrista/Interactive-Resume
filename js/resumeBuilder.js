@@ -36,6 +36,20 @@ var work = {
 		  "dates": "September 2012 - September 2015",
 		  "location": "Washington DC, USA",
 		  "description": "In charge of teaching Spanish at the whole school"
+		},
+		{
+			"title": "Spanish Teacher to Ambassadors",
+		  "employer": "Organization of American States",
+		  "dates": "September 2013 - January 2015",
+		  "location": "Washington DC, USA",
+		  "description": "Spanish Teacher to Ambassadors from the Caribbean Community"
+		},
+		{
+			"title": "International internship in the Dominican Republic",
+		  "employer": "Yspaniola",
+		  "dates": "July - August 2013",
+		  "location": "Esperanza, Dominican Republic",
+		  "description": "Teaching in an impoverished area in the DR"
 		}
   ]
 }
@@ -73,6 +87,13 @@ var projects = {
 var education = {
 	"schools":
 	  [
+	  	{
+	  		"name": "Udacity",
+	  		"degree" : "Front End Developer Nanodegree",
+	  		"dates": "Current",
+	  		"location": "Online",
+	  		"major": "Front End web development"
+	  	},
 			{
 				"name": "Ironhack",
 			  "degree": "Coding Bootcamp Program",
@@ -101,14 +122,7 @@ var education = {
 			  "location": "Seville, Spain",
 			  "major": "ESL and Early Childhood Education"
 		  }
-		],
-  "onlineSchool": 
-  	{
-  		"name": "Front End Developer Nanogree",
-  		"school": "Udacity",
-  		"dates": "Summer 2016",
-  		"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-  	}
+		]
 }
 
 function headerDisplay() {
@@ -166,10 +180,9 @@ education.display = function() {
 		$('.education-entry').append(dates + location);
 	  $('.education-entry').append(major);
 	})
-	$('.education-entry').append(HTMLonlineClasses);
-	$('.education-entry').append(HTMLonlineTitle.replace('%data%',education.onlineSchool.name) + HTMLonlineSchool.replace('%data%',education.onlineSchool.school));
-	$('.education-entry').append(HTMLonlineDates.replace('%data%',education.onlineSchool.dates));
-	$('.education-entry').append(HTMLonlineURL.replace('%data%',education.onlineSchool.url));
+	// $('.education-entry').append(HTMLonlineTitle.replace('%data%',education.onlineSchool.name) + HTMLonlineSchool.replace('%data%',education.onlineSchool.school));
+	// $('.education-entry').append(HTMLonlineDates.replace('%data%',education.onlineSchool.dates));
+	// $('.education-entry').append(HTMLonlineURL.replace('%data%',education.onlineSchool.url));
 }
 
 projects.display = function() {

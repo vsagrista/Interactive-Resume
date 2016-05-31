@@ -293,9 +293,14 @@ span {
   margin: 1px;
   color: #333;
   width: 80%;
+  text-transform: uppercase;
 }
 .chart div:hover{
   background-color: #00D4C0;
+}
+
+.connect-text {
+  color: #333;
 }
 
 /* Media queries to handle various device widths */
@@ -331,6 +336,15 @@ span {
   
   .img-div {
     width: 65%;
+  }
+
+  .inner-entry {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .inner-entry:first-child, .inner-entry:last-child {
+    border-radius: 0;
   }
 
 

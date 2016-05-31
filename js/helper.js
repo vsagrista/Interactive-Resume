@@ -49,12 +49,6 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001" id="online-course-url">%data%</a>';
-
 var HTMLchangeLanguage = '<a id="english" class="lang-change selected">EN</a><div class="vertical-bar lang-change"></div><a id="spanish" class="lang-change">ES</a>';
 var googleMap = '<div id="map"></div>';
 
@@ -102,6 +96,10 @@ $(document).click(function(event) {
 });
 
 
+function locationIsNotRepeated(location) {
+  return education.schools.indexOf(location) === -1 || 
+         work.jobs.indexOf(location) === -1;
+}
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -146,7 +144,7 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
-      locations.push(school.location);
+      if(locationIsNotRepeated(school.location)) locations.push(school.location);
     });
 
     // iterates through work locations and appends each location to
@@ -154,7 +152,7 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job){
-      locations.push(job.location);
+      if(locationIsNotRepeated(job.location)) locations.push(job.location);
     });
 
     return locations;
@@ -216,7 +214,7 @@ function initializeMap() {
   and fires off Google place searches for each location
   */
   function pinPoster(locations) {
-
+    console.log(locations)
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
