@@ -2,9 +2,9 @@
 var bio = {
   "name": "Victor Sagrista",
   "role": "Front End Developer",
-  "pictureUrl": "./images/developer.jpg",
+  "pictureUrl": "./images/victor.png",
   "welcomeMessage": "Welcome to my interactive resume page",
-  "skills": ["Javacript", "angular", "react", "HTML", "CSS", "rails", "grunt"],
+  "skills": ["Javacript", "Angular", "Rails", "HTML", "CSS", "Grunt", "Handlebars"],
   "contacts": {
   	"mobile": "+34-615-585-539",
   	"email": "victorsagristalopez@gmail.com",
@@ -104,18 +104,17 @@ var education = {
   	}
 }
 
-
 function headerDisplay() {
 	HTMLheaderName = HTMLheaderName.replace('%data%',bio.name);
 	HTMLheaderRole = HTMLheaderRole.replace('%data%',bio.role);
 	HTMLbioPic = HTMLbioPic.replace('%data%',bio.pictureUrl);
-	HTMLwelcomeMsg = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+	// HTMLwelcomeMsg = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 	$('#header').prepend(HTMLheaderRole);
 	$('#header').prepend(HTMLheaderName);
 	$('#header').prepend(internationalizeButton);
-	$('#header').append(HTMLbioPic);
-	$('#header').append(HTMLwelcomeMsg);
-	$('#header').append(HTMLskillsStart);
+	$('#img-div').append(HTMLbioPic);
+	// $('#skills-div').append(HTMLwelcomeMsg);
+	$('#skills-div').append(HTMLskillsStart);
 }
 
 function contactInfoDisplay() {
@@ -129,12 +128,12 @@ function contactInfoDisplay() {
 	$('#topContacts').append(location);
 }
  
-function skillsDisplay() {
-	bio.skills.forEach(function(skill) {
-		var nextSkill = HTMLskills.replace('%data%',skill);
-		$('#skills').append(nextSkill);
-	});
-}
+// function skillsDisplay() {
+// 	bio.skills.forEach(function(skill) {
+// 		var nextSkill = HTMLskills.replace('%data%',skill);
+// 		$('#skills').append(nextSkill);
+// 	});
+// }
 
 work.display = function() {
 	$('#workExperience').append(HTMLworkStart);
@@ -192,9 +191,18 @@ function inName(name) {
 	return firstName + ' ' + lastName;
 }
 
+var chartData = [4, 8, 15, 16, 23, 42];
+var scores = [4,5,7,8,9,10,8]
+var chart = d3.select(".chart");
+var bar = chart.selectAll("div");
+var barUpdate = bar.data(bio.skills);
+var barEnter = barUpdate.enter().append("div");
+barEnter.style("width", function(d,i) { return scores[i] * 50 + "px"; });
+barEnter.text(function(d) { return d; });
+
 headerDisplay();
 contactInfoDisplay();
-skillsDisplay();
+//skillsDisplay();
 work.display();
 education.display();
 projects.display();

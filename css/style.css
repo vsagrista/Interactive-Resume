@@ -2,16 +2,20 @@ body,
 div,
 ul,
 li,
-p,
+p
+{
+  padding:0;
+  margin:0;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Cinzel', serif; 
 }
 
 img {
@@ -57,10 +61,15 @@ img {
 }
 
 h1 {
-  font-size: 40px;
-  color: #f5a623;
+  font-size: 40px !important;
+  color:#f5ae23;
+  color: #333;
   line-height: 48px;
   display: inline;
+}
+
+.subheader {
+  font-size: 20px;
 }
 
 h2 {
@@ -69,6 +78,7 @@ h2 {
   color: #999;
   line-height: 29px;
   padding: 10px;
+  margin: 0;
 }
 
 h3 {
@@ -96,7 +106,7 @@ h5 {
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 18px;
   color: #999;
   line-height: 16px;
   float: left;
@@ -111,8 +121,11 @@ h5 {
 
 }
 
+li,p,a {
+  font-size: 18px;
+}
+
 p {
-  font-size: 14px;
   color: #333;
   line-height: 21px;
 }
@@ -123,16 +136,15 @@ a {
   margin-top: 10px;
   display: block;
 }
-
+/*
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
   line-height: 28px;
-}
+}*/
 
-#skills-h3 {
-  color: #f5ae23;
+.skills-h3 {
+  padding: 0;
   display: none;
 }
 
@@ -144,8 +156,13 @@ a {
   color: #f5ae23;
 }
 
+.black-text {
+  color: #333;
+}
+
+/*first change the ones that had orange text for black text
+*/
 .white-text {
-  font-weight: bold;
   color: #fff;
 }
 
@@ -160,8 +177,8 @@ a {
 }
 
 /* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+.header {
+  background-color: #607D8B;
 }
 
 .flex-box {
@@ -187,9 +204,12 @@ ul {
 
 .biopic {
   float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.img-div {
+  height: 200px;
 }
 
 span {
@@ -198,6 +218,20 @@ span {
 
 #lets-connect {
   text-align: center;
+}
+
+.skills-div {
+  padding: 20px;
+  height: 150px;
+}
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: #00BCD4;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: #333;
 }
 
 /* Media queries to handle various device widths */
@@ -209,17 +243,12 @@ span {
 }
 
 @media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
+  
 }
 
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
   }
   .project-entry {
     display: block;
@@ -227,8 +256,10 @@ span {
   .inner-entry {
     width: 100%;
   }
-  .welcome-message {
-    display: none;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
