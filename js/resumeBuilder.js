@@ -1,4 +1,3 @@
-// Info
 var bio = {
   "name": "Victor Sagrista",
   "role": "Front End Developer",
@@ -17,39 +16,39 @@ var bio = {
 var work = {
 	"jobs": [
 	  {
-		  "title": "Front End Developer",
+		  "title": ["Front End Developer","Desarrollador Front End"],
 		  "employer": "Novicap",
-		  "dates": "December, May 2016",
+		  "dates": ["December, May 2016", "Diciembre - Mayo 2016"],
 		  "location": "Barcelona",
-		  "description": "In charge of the front end site"
+		  "description": ["In charge of the front end site","Encargado de mantener el front end de la empresa"]
 	  },
 	  {
-		  "title": "Ruby developer and Teaching Assistant",
+		  "title": ["Ruby developer and Teaching Assistant","Desarrollador Ruby y profesor asistente"],
 		  "employer": "Ironhack",
 		  "dates": "October - December 2015",
 		  "location": "Barcelona",
-		  "description": "Teaching and reviewing code in ruby and rails"
+		  "description": ["Teaching and reviewing code in ruby and rails","Programando en ruby y ayudando a los alumnos con code reviews y explicaciones"]
 		},
 		{
-			"title": "World Language Teacher",
+			"title": ["World Language Teacher", "Profesor de español"],
 		  "employer": "DC Public Schools",
-		  "dates": "September 2012 - September 2015",
+		  "dates": ["September 2012 - September 2015","Septiembre 2012 - Septiembre 2015"],
 		  "location": "Washington DC, USA",
-		  "description": "In charge of teaching Spanish at the whole school"
+		  "description": ["In charge of teaching Spanish at the whole school", "Encargado de enseñar español a toda la escuela"]
 		},
 		{
-			"title": "Spanish Teacher to Ambassadors",
-		  "employer": "Organization of American States",
-		  "dates": "September 2013 - January 2015",
+			"title": ["Spanish Teacher to Ambassadors","Profesor de español de embajadores"],
+		  "employer": ["Organization of American States","Organización de Estados Americanos"],
+		  "dates": ["September 2013 - January 2015", "Septiembre 2013 - Enero 2015"],
 		  "location": "Washington DC, USA",
-		  "description": "Spanish Teacher to Ambassadors from the Caribbean Community"
+		  "description": ["Spanish Teacher to Ambassadors from the Caribbean Community", "Profesor de español de embajadores de la CARICOM"]
 		},
 		{
-			"title": "International internship in the Dominican Republic",
+			"title": ["International internship in the Dominican Republic", "Pasantia internacional en la República Dominicana"],
 		  "employer": "Yspaniola",
-		  "dates": "July - August 2013",
-		  "location": "Esperanza, Dominican Republic",
-		  "description": "Teaching in an impoverished area in the DR"
+		  "dates": ["July - August 2013", "Julio - Agosto 2013"],
+		  "location": ["Esperanza, Dominican Republic", "Esperanza, República Dominicana"],
+		  "description": ["Teaching in an impoverished area in the DR", "Profesor voluntario en una zona marginal"]
 		}
   ]
 }
@@ -125,10 +124,10 @@ var education = {
 		]
 }
 
-function headerDisplay() {
-	HTMLheaderName = HTMLheaderName.replace('%data%',bio.name);
-	HTMLheaderRole = HTMLheaderRole.replace('%data%',bio.role);
-	HTMLbioPic = HTMLbioPic.replace('%data%',bio.pictureUrl);
+bio.headerDisplay = function() {
+	HTMLheaderName = HTMLheaderName.replace('%data%',checkLang(bio.name));
+	HTMLheaderRole = HTMLheaderRole.replace('%data%',checkLang(bio.role));
+	HTMLbioPic = HTMLbioPic.replace('%data%',checkLang(bio.pictureUrl));
 	$('#header').prepend(HTMLheaderRole);
 	$('#header').prepend(HTMLheaderName);
 	$('#header').prepend(HTMLchangeLanguage);
@@ -136,32 +135,34 @@ function headerDisplay() {
 	$('.chart').append(HTMLskillsStart);
 }
 
-function contactInfoDisplay() {
-	var mobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
-	var email = HTMLemail.replace('%data%',bio.contacts.email);
-	var github = HTMLgithub.replace('%data%',bio.contacts.github);
-	var location = HTMLlocation.replace('%data%',bio.contacts.location);
+bio.contactInfoDisplay = function() {
+	var mobile = HTMLmobile.replace('%data%',checkLang(bio.contacts.mobile));
+	var email = HTMLemail.replace('%data%',checkLang(bio.contacts.email));
+	var github = HTMLgithub.replace('%data%',checkLang(bio.contacts.github));
+	var location = HTMLlocation.replace('%data%',checkLang(bio.contacts.location));
 	$('#topContacts').append(mobile);
 	$('#topContacts').append(email);
 	$('#topContacts').append(github);
 	$('#topContacts').append(location);
 }
  
-// function skillsDisplay() {
-// 	bio.skills.forEach(function(skill) {
-// 		var nextSkill = HTMLskills.replace('%data%',skill);
-// 		$('#skills').append(nextSkill);
-// 	});
-// }
+bio.skillsDisplay = function() {
+	var chart = d3.select(".chart");
+	var bar = chart.selectAll("div");
+	var barUpdate = bar.data(bio.skills);
+	var barEnter = barUpdate.enter().append("div");
+	barEnter.style("width", function(d,i) { return bio.scores[i] * 10 + "%"; });
+	barEnter.text(function(d) { return d; });
+}
 
 work.display = function() {
 	$('#workExperience').append(HTMLworkStart);
 	work.jobs.forEach(function(work){
-		var employer = HTMLworkEmployer.replace('%data%',work.employer);
-		var title = HTMLworkTitle.replace('%data%',work.title);
-		var dates = HTMLworkDates.replace('%data%',work.dates);
-		var location = HTMLworkLocation.replace('%data%',work.dates);
-		var description = HTMLworkDescription.replace('%data%',work.description);
+		var employer = HTMLworkEmployer.replace('%data%',checkLang(work.employer));
+		var title = HTMLworkTitle.replace('%data%',checkLang(work.title));
+		var dates = HTMLworkDates.replace('%data%',checkLang(work.dates));
+		var location = HTMLworkLocation.replace('%data%',checkLang(work.dates));
+		var description = HTMLworkDescription.replace('%data%',checkLang(work.description));
 		$('.work-entry').append(employer + title);
 		$('.work-entry').append(dates + location);
 	  $('.work-entry').append(description);
@@ -180,9 +181,6 @@ education.display = function() {
 		$('.education-entry').append(dates + location);
 	  $('.education-entry').append(major);
 	})
-	// $('.education-entry').append(HTMLonlineTitle.replace('%data%',education.onlineSchool.name) + HTMLonlineSchool.replace('%data%',education.onlineSchool.school));
-	// $('.education-entry').append(HTMLonlineDates.replace('%data%',education.onlineSchool.dates));
-	// $('.education-entry').append(HTMLonlineURL.replace('%data%',education.onlineSchool.url));
 }
 
 projects.display = function() {
@@ -208,19 +206,38 @@ function inName(name) {
 	return firstName + ' ' + lastName;
 }
 
-//var scores = [4,5,7,8,9,7,8]
-var chart = d3.select(".chart");
-var bar = chart.selectAll("div");
-var barUpdate = bar.data(bio.skills);
-var barEnter = barUpdate.enter().append("div");
-barEnter.style("width", function(d,i) { return bio.scores[i] * 10 + "%"; });
-barEnter.text(function(d) { return d; });
+function checkLang(info) {
+	if (Array.isArray(info)) {
+		if (window.sessionStorage.lang === 'ES') {
+			$('.lang-change').addClass('selected-lang');
+			$('#english').removeClass('selected-lang');
+			return info[1]; 
+		}
+		$('.lang-change').addClass('selected-lang');
+		$('#spanish').removeClass('selected-lang');
+		return info[0]; 
+	}
+	return info;
+}
 
-headerDisplay();
-contactInfoDisplay();
-//skillsDisplay();
-work.display();
-education.display();
-projects.display();
+function init(){
+	bio.headerDisplay();
+	bio.contactInfoDisplay();
+	bio.skillsDisplay();
+	work.display();
+	education.display();
+	projects.display();
+}
+init();
+
+$(document).on('click','#spanish', function(){
+		sessionStorage.setItem('lang', 'ES');
+		location.reload()
+});
+
+$(document).on('click','#english', function(){
+	  sessionStorage.setItem('lang', 'EN');
+		location.reload()
+});
 
 $('#mapDiv').append(googleMap);

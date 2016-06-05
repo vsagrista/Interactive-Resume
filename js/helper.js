@@ -17,6 +17,7 @@ var HTMLheaderRole = '<span class="orange-text subheader">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="black-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="black-text">Mobile</span><span class="white-text">%data%</span></li>';
+var HTMLmobileEs = '<li class="flex-item"><span class="black-text">Movil</span><span class="white-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><span class="black-text">Email</span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="black-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="black-text">Github</span><span class="white-text">%data%</span></li>';
@@ -26,6 +27,8 @@ var HTMLlocation = '<li class="flex-item"><span class="black-text">Location</spa
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 
 var HTMLskillsStart = '<h3 id="skills-h3" class="black-text skills-h3">Skills at a Glance:</h3>';
+var HTMLskillsStartEs = '<h3 id="skills-h3" class="black-text skills-h3">Skills at a Glance:</h3>';
+
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -49,7 +52,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLchangeLanguage = '<a id="english" class="lang-change selected">EN</a><div class="vertical-bar lang-change"></div><a id="spanish" class="lang-change">ES</a>';
+var HTMLchangeLanguage = '<a id="english" class="lang-change selected-lang">EN</a><div class="vertical-bar lang-change"></div><a id="spanish" class="lang-change">ES</a>';
 var googleMap = '<div id="map"></div>';
 
 
@@ -144,7 +147,8 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
-      if(locationIsNotRepeated(school.location)) locations.push(school.location);
+      if(locationIsNotRepeated(school.location)) 
+        if (school.location != 'Online') locations.push(school.location);
     });
 
     // iterates through work locations and appends each location to
@@ -214,7 +218,6 @@ function initializeMap() {
   and fires off Google place searches for each location
   */
   function pinPoster(locations) {
-    console.log(locations)
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
@@ -228,7 +231,7 @@ function initializeMap() {
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
-      service.textSearch(request, callback);
+      setInterval(service.textSearch(request, callback), 100);
     });
   }
 

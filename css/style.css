@@ -33,7 +33,7 @@ img {
   display: inline;
   padding: 0 2px;
 }
-.selected {
+.selected-lang {
   font-style: italic;
 }
 
@@ -133,6 +133,7 @@ h1 {
 
 .subheader {
   font-size: 20px;
+  display: inline-block;
 }
 
 h2 {
@@ -371,9 +372,6 @@ span {
     height: 150px;
     margin-right: -15px;
     width: 90%;
-  }
-  .subheader {
-    display: inline-block;
   }
   .top-contacts {
     display: block;
