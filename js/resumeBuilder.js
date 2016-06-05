@@ -9,7 +9,9 @@ var bio = {
   	"mobile": "+34-615-585-539",
   	"email": "victorsagristalopez@gmail.com",
   	"github": "https://github.com/vsagrista",
-  	"location": "Barcelona"
+  	"location": "Barcelona",
+  	"mobileTag": ["Mobile", "Movil"],
+  	"locationTag": ["Location", "Ciudad"]
   }
 }
 
@@ -25,7 +27,7 @@ var work = {
 	  {
 		  "title": ["Ruby developer and Teaching Assistant","Desarrollador Ruby y profesor asistente"],
 		  "employer": "Ironhack",
-		  "dates": "October - December 2015",
+		  "dates": ["October - December 2015","Octubre - Diciembre 2015"],
 		  "location": "Barcelona",
 		  "description": ["Teaching and reviewing code in ruby and rails","Programando en ruby y ayudando a los alumnos con code reviews y explicaciones"]
 		},
@@ -53,30 +55,29 @@ var work = {
   ]
 }
 
-
 var projects = {
 	"project": [ 
 	  {
 	   "title":"Altuist",
-	   "description": "Web app for users to share minutes for skills. Javascript & RoR ",
-	   "dates":"October 2015 - Ongoing",
+	   "description": ["Web app for users to 'pay' with minutes for their talent, like a time bank. Built with Javascript & RoR ","App para intercambiar minutos por habilidades, como en un banco de tiempo. Hecha con Rails y Javascript"],
+	   "dates":["October 2015 - Ongoing", "Octubre 2015 - Actualmente"],
 	   "img":"./images/birds.jpg"
 		},
 		{
-		 "title":"Automated Posts",
-	   "description": "An app to schedule tweets. Javascript & RoR",
-	   "dates":"Nov 2015 - January 2016",
+		 "title": ["Automated Posts","Posts Automáticos"],
+	   "description": ["An app to schedule tweets on a specific date. Built with Javascript & RoR", "App para programar tweets en una fecha concreta futura. Hecha con Javascript y Rails"],
+	   "dates": ["Nov 2015 - January 2016", "Nov - Enero 2016"],
 	   "img":"./images/robot.png"
 		},
 		{
-		 "title":"Random Quote Generator",
-	   "description": "Front End project that displays random quotes from an API",
-	   "dates":"February 2016",
+		 "title": ["Random Quote Generator","Generador de citas famosas"],
+	   "description": ["Front End project that displays random quotes from an API. Built with Javascript and CSS", "Proyecto de front end que muestra citas extraidas de una API. Hecha con Javascript y CSS"],
+	   "dates": ["February 2016","Febrero 2016"],
 	   "img":"./images/quote.png"
 		},
 		{
-		 "title":"Random FlickR Search",
-	   "description": "Front End project that displays random FlickR chosen images",
+		 "title":["Random FlickR Search","Busqueda aleatoria en Flickr"],
+	   "description": ["Front End project that displays random FlickR chosen images. Made with React and Webpack ", "Proyecto front end que muestra imagenes aleatorias y el tiempo. Hecho con React y Webpack"],
 	   "dates":"April 2016",
 	   "img":"./images/flickr.png"
 		}
@@ -124,6 +125,14 @@ var education = {
 		]
 }
 
+var tags = {
+	"experienceHeader": ["Work Experience","Experiencia Laboral"],
+	"projectsHeader": ["Projects","Proyectos"],
+	"educationHeader": ["Education", "Educación"],
+	"mapHeader": ["Where I've lived and Worked","Donde he vivido y trabajado"],
+	"letsConnect": ["Let's Connect", "Contactemos"]
+}
+
 bio.headerDisplay = function() {
 	HTMLheaderName = HTMLheaderName.replace('%data%',checkLang(bio.name));
 	HTMLheaderRole = HTMLheaderRole.replace('%data%',checkLang(bio.role));
@@ -136,10 +145,11 @@ bio.headerDisplay = function() {
 }
 
 bio.contactInfoDisplay = function() {
-	var mobile = HTMLmobile.replace('%data%',checkLang(bio.contacts.mobile));
+	console.log(tags.mobileHeader)
+	var mobile = (HTMLmobile.replace('%data%',checkLang(bio.contacts.mobile))).replace('%mobile%',checkLang(bio.contacts.mobileTag));
 	var email = HTMLemail.replace('%data%',checkLang(bio.contacts.email));
 	var github = HTMLgithub.replace('%data%',checkLang(bio.contacts.github));
-	var location = HTMLlocation.replace('%data%',checkLang(bio.contacts.location));
+	var location = (HTMLlocation.replace('%data%',checkLang(bio.contacts.location))).replace('%location%',checkLang(bio.contacts.locationTag));
 	$('#topContacts').append(mobile);
 	$('#topContacts').append(email);
 	$('#topContacts').append(github);
@@ -172,11 +182,11 @@ work.display = function() {
 education.display = function() {
 	$('#education').append(HTMLschoolStart);
 	education.schools.forEach(function(school){
-		var name = HTMLschoolName.replace('%data%',school.name);
-		var degree = HTMLschoolDegree.replace('%data%',school.degree);
-		var dates = HTMLschoolDates.replace('%data%',school.dates);
-		var location = HTMLschoolLocation.replace('%data%',school.location)
-		var major = HTMLschoolMajor.replace('%data%',school.major);
+		var name = HTMLschoolName.replace('%data%',checkLang(school.name));
+		var degree = HTMLschoolDegree.replace('%data%',checkLang(school.degree));
+		var dates = HTMLschoolDates.replace('%data%',checkLang(school.dates));
+		var location = HTMLschoolLocation.replace('%data%',checkLang(school.location));
+		var major = HTMLschoolMajor.replace('%data%',checkLang(school.major));
 		$('.education-entry').append(name + degree);
 		$('.education-entry').append(dates + location);
 	  $('.education-entry').append(major);
@@ -187,9 +197,9 @@ projects.display = function() {
 	$('#projects').append(HTMLprojectStart);
 	projects.project.forEach(function(project,index){
 	  var img = HTMLprojectImage.replace('%data%',project.img);
-		var title = HTMLprojectTitle.replace('%data%',project.title);
-		var dates = HTMLprojectDates.replace('%data%',project.dates);
-	  var description = HTMLprojectDescription.replace('%data%',project.description);
+		var title = HTMLprojectTitle.replace('%data%',checkLang(project.title));
+		var dates = HTMLprojectDates.replace('%data%',checkLang(project.dates));
+	  var description = HTMLprojectDescription.replace('%data%',checkLang(project.description));
 	  var innerEntry = HTMLinnerEntry.replace('%data%',index);
 	  $('.project-entry').append(innerEntry);
 	  $('.inner-entry-'+index).append(title);
@@ -208,6 +218,7 @@ function inName(name) {
 
 function checkLang(info) {
 	if (Array.isArray(info)) {
+		console.log(info)
 		if (window.sessionStorage.lang === 'ES') {
 			$('.lang-change').addClass('selected-lang');
 			$('#english').removeClass('selected-lang');
@@ -219,8 +230,18 @@ function checkLang(info) {
 	}
 	return info;
 }
+function setTagsHeaders(){
+	$('#experience-header').html(checkLang(tags.experienceHeader));
+	$('#mobile-header').html(checkLang(tags.mobileHeader));
+  $('#location-header').html(checkLang(tags.locationHeader));
+  $('#projects-header').html(checkLang(tags.projectsHeader));
+  $('#education-header').html(checkLang(tags.educationHeader));
+  $('#map-header').html(checkLang(tags.mapHeader));
+  $('#lets-connect').html(checkLang(tags.letsConnect));
+}
 
 function init(){
+	setTagsHeaders();
 	bio.headerDisplay();
 	bio.contactInfoDisplay();
 	bio.skillsDisplay();

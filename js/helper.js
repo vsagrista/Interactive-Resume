@@ -16,18 +16,16 @@ var HTMLheaderName = '<h1 id="name" class="black-text">%data%</h1>';
 var HTMLheaderRole = '<span class="orange-text subheader">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="black-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="black-text">Mobile</span><span class="white-text">%data%</span></li>';
-var HTMLmobileEs = '<li class="flex-item"><span class="black-text">Movil</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li  class="flex-item"><span class="black-text">%mobile%</span><span class="white-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><span class="black-text">Email</span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="black-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="black-text">Github</span><span class="white-text">%data%</span></li>';
 var HTMLblog = '<li class="flex-item"><span class="black-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="black-text">Location</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li  class="flex-item"><span class="black-text">%location%</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 
 var HTMLskillsStart = '<h3 id="skills-h3" class="black-text skills-h3">Skills at a Glance:</h3>';
-var HTMLskillsStartEs = '<h3 id="skills-h3" class="black-text skills-h3">Skills at a Glance:</h3>';
 
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
@@ -52,7 +50,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLchangeLanguage = '<a id="english" class="lang-change selected-lang">EN</a><div class="vertical-bar lang-change"></div><a id="spanish" class="lang-change">ES</a>';
+var HTMLchangeLanguage = '<a id="english" class="lang-change selected-lang">EN</a><div class="vertical-bar selected-lang"></div><a id="spanish" class="lang-change">ES</a>';
 var googleMap = '<div id="map"></div>';
 
 

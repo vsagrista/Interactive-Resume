@@ -32,9 +32,12 @@ img {
   color: #00BCD4;
   display: inline;
   padding: 0 2px;
+  cursor: pointer;
 }
+
 .selected-lang {
   font-style: italic;
+  display: none;
 }
 
 .vertical-bar {
