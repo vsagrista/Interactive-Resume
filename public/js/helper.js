@@ -4,7 +4,7 @@ var HTMLheaderRole = '<span class="orange-text subheader">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="black-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li  class="flex-item"><span class="black-text">%mobile%</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="black-text">Email</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="black-text">Email</span><a class="white-text white-hover" href="mailto:#">%data%</a></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="black-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="black-text">Github</span><a href="#" class="white-text white-hover">%data%</a></li>';
 var HTMLblog = '<li class="flex-item"><span class="black-text">blog</span><span class="white-text">%data%</span></li>';

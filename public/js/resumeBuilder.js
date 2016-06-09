@@ -10,7 +10,7 @@ var bio = {
   	"email": "victorsagristalopez@gmail.com",
   	"github": "https://github.com/vsagrista",
   	"location": "Barcelona, Spain",
-  	"mobileTag": ["Mobile", "Movil"],
+  	"mobileTag": ["Mobile", "Móvil"],
   	"locationTag": ["Location", "Ciudad"]
   }
 }
@@ -97,7 +97,7 @@ var education = {
 	  		"degree" : "Front End Developer Nanodegree",
 	  		"dates": "Current",
 	  		"location": "Online",
-	  		"major": "Front End web development",
+	  		"major": "Front End Web Dsevelopment",
 	  		"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 	  	},
 			{
@@ -156,8 +156,8 @@ bio.headerDisplay = function() {
 
 bio.contactInfoDisplay = function() {
 	var mobile = (HTMLmobile.replace('%data%',checkLang(bio.contacts.mobile))).replace('%mobile%',checkLang(bio.contacts.mobileTag));
-	var email = HTMLemail.replace('%data%',checkLang(bio.contacts.email));
-	var github = (HTMLgithub.replace('%data%',checkLang(bio.contacts.github))).replace('#','https://github.com/vsagrista');
+	var email = (HTMLemail.replace('%data%',bio.contacts.email)).replace('#',bio.contacts.email);
+	var github = (HTMLgithub.replace('%data%',bio.contacts.github)).replace('#',bio.contacts.github);
 	var location = (HTMLlocation.replace('%data%',checkLang(bio.contacts.location))).replace('%location%',checkLang(bio.contacts.locationTag));
 	$('#topContacts').append(mobile);
 	$('#topContacts').append(email);

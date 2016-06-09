@@ -18,6 +18,10 @@ h6 {
   font-family: 'Cinzel', serif; 
 }
 
+.non-style-hover:hover {
+  text-decoration: initial;
+}
+
 .white-hover:hover {
   color: white;
 }
