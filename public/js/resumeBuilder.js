@@ -95,41 +95,41 @@ var education = {
 	  	{
 	  		"name": "Udacity",
 	  		"degree" : "Front End Developer Nanodegree",
-	  		"dates": "Current",
+	  		"dates": ["Current", "Actualmente"],
 	  		"location": "Online",
-	  		"major": "Front End Web Dsevelopment",
+	  		"major": ["Front End Web Development","Desarrollo Front End"],
 	  		"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 	  	},
 			{
 				"name": "Ironhack",
-			  "degree": "Coding Bootcamp Program",
-			  "dates": "August - October 2015",
-			  "location": "Barcelona, Spain",
+			  "degree": ["Coding Bootcamp Program","Curso de programacion web intensivo"],
+			  "dates": ["August - Oct 2015", "Agosto - Oct 2015"],
+			  "location": ["Barcelona, Spain", "Barcelona, España"],
 			  "major": "HTML, CSS, Ruby on Rails, Javascript",
 			  "url": "https://www.ironhack.com/es/curso-programacion-web"
 			},
 			{
 				"name": "American University",
 			  "degree": "Social Context of Bilingual Learners",
-			  "dates": "September - December 2013",
-			  "location": "Washington DC, USA",
-			  "major": "Graduate coursework",
+			  "dates": ["September - Dec 2013", "Septiembre - Dic 2013"],
+			  "location": ["Washington DC, USA", "Washington DC, EEUU"],
+			  "major": ["Graduate coursework", "Asignatura de máster"],
 			  "url": "http://catalog.american.edu/preview_course_nopop.php?catoid=3&coid=8623"
 			},
 		  {
-			  "name": "Pablo de Olavide University",
-			  "degree": "MA The Humanities",
-			  "dates": "June 2008, June 2010",
-			  "location": "Seville, Spain",
-			  "major": "Spanish Teaching as a Foreign Language",
+			  "name": ["Pablo de Olavide University","Universidad Pablo de Olavide"],
+			  "degree": ["MA The Humanities","Licenciado en Humanidades"],
+			  "dates": ["June 2008 - June 2010", "Junio 2008 - Junio 2010"],
+			  "location": ["Seville, Spain", "Sevilla, España"],
+			  "major": ["Spanish Teaching as a Foreign Language", "Profesor de español como LE"],
 			  "url": "https://www.upo.es"
 			},
 		  {
-			  "name": "University of Seville",
-			  "degree": "BA Elementay Education and Teaching",
-			  "dates": "June 2003, June 2007",
-			  "location": "Seville, Spain",
-			  "major": "ESL and Early Childhood Education",
+			  "name": ["University of Seville", "Universidad de Sevilla"],
+			  "degree": ["BA Elementay Education and Teaching", "Magisterio de ingles y de ed. infantil"],
+			  "dates": ["June 2003 - June 2007", "Junio 2003 - Junio 2007"],
+			  "location": ["Seville, Spain", "Sevilla, España"],
+			  "major": "ESL y educación infantil",
 			  "url": "http://www.us.es/"
 		  }
 		]
