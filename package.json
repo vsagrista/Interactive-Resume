@@ -1,30 +1,25 @@
 {
-  "scripts": {
-  "start": "node app.js",
-  "web": "app.js"
-  },
-  "name": "InteractiveResume",
+  "name": "interactive-resume",
   "version": "1.0.0",
-  "description": "1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select \"View Course Materials.\" 2. Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume. 3. Review your work against the Project Rubric (on the next page). 4. When you are satisfied with your project, submit it according to the Submission Instructions on the next page.",
+  "description": "An interactive resume built on JS, CSS, HTML, d3 and express",
   "main": "app.js",
-  "engines": {
-    "node": "4.1.1"
-  },
-  "dependencies": {
-    "express": "^4.13.4"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "resume"
+  ],
+  "author": "victor-sagrista",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.13.4"
+  },
+  "engines": {
+    "node": "4.1.2"
+  },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vsagrista/Interactive-Resume.git"
-  },
-  "author": "Victor Sagrista",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vsagrista/Interactive-Resume/issues"
-  },
-  "homepage": "https://github.com/vsagrista/Interactive-Resume#readme"
+  "type": "git",
+  "url": "https://github.com/vsagrista/Interactive-Resume"
+}
+
 }
