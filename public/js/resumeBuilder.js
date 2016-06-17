@@ -72,7 +72,7 @@ var projects = {
 		 "title": ["Automated Posts","Posts Automáticos"],
 	   "description": ["An app to schedule tweets on a specific date in the future. Built with Javascript & RoR", "App para programar tweets en una fecha concreta futura. Hecha con Javascript y Rails"],
 	   "dates": ["Nov 2015 - January 2016", "Nov - Enero 2016"],
-	   "url":"http://automatedposts.herokuapp.com/"
+	   "url": "https://github.com/vsagrista/Automated-posts"
 		},
 		{
 		 "title": ["Random Quote Generator","Generador de citas famosas"],
