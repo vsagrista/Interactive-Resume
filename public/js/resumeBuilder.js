@@ -87,7 +87,7 @@ var projects = {
 	   "url": "https://github.com/vsagrista/Random-Search-Flickr-React"
 		}
 	]
-}
+};
 
 var education = {
 	"schools":
@@ -133,7 +133,7 @@ var education = {
 			  "url": "http://www.us.es/"
 		  }
 		]
-}
+};
 
 var tags = {
 	"experienceHeader": ["Work Experience","Experiencia Laboral"],
@@ -141,7 +141,7 @@ var tags = {
 	"educationHeader": ["Education", "Educación"],
 	"mapHeader": ["Where I've lived and Worked","Donde he vivido y trabajado"],
 	"letsConnect": ["Let's Connect", "Contactemos"]
-}
+};
 
 bio.headerDisplay = function() {
 	HTMLheaderName = HTMLheaderName.replace('%data%',checkLang(bio.name));
@@ -152,7 +152,7 @@ bio.headerDisplay = function() {
 	$('#header').prepend(HTMLchangeLanguage);
 	$('#img-div').append(HTMLbioPic);
 	$('.chart').append(HTMLskillsStart);
-}
+};
 
 bio.contactInfoDisplay = function() {
 	var mobile = (HTMLmobile.replace('%data%',checkLang(bio.contacts.mobile))).replace('%mobile%',checkLang(bio.contacts.mobileTag));
@@ -163,7 +163,7 @@ bio.contactInfoDisplay = function() {
 	$('#topContacts').append(email);
 	$('#topContacts').append(github);
 	$('#topContacts').append(location);
-}
+};
  
 bio.skillsDisplay = function() {
 	var chart = d3.select(".chart");
@@ -172,7 +172,7 @@ bio.skillsDisplay = function() {
 	var barEnter = barUpdate.enter().append("div");
 	barEnter.style("width", function(d,i) { return bio.scores[i] * 10 + "%"; });
 	barEnter.text(function(d) { return d; });
-}
+};
 
 work.display = function() {
 	$('#workExperience').append(HTMLworkStart);
@@ -185,13 +185,13 @@ work.display = function() {
 		$('.work-entry').append(employer + title);
 		$('.work-entry').append(dates + location);
 	  $('.work-entry').append(description);
-	})
-}
+	});
+};
 
 education.display = function() {
 	$('#education').append(HTMLschoolStart);
 	education.schools.forEach(function(school){
-		var name = (HTMLschoolName.replace('%data%',checkLang(school.name))).replace('#',school.url);;
+		var name = (HTMLschoolName.replace('%data%',checkLang(school.name))).replace('#',school.url);
 		var degree = HTMLschoolDegree.replace('%data%',checkLang(school.degree));
 		var dates = HTMLschoolDates.replace('%data%',checkLang(school.dates));
 		var location = HTMLschoolLocation.replace('%data%',checkLang(school.location));
@@ -199,8 +199,8 @@ education.display = function() {
 		$('.education-entry').append(name + degree);
 		$('.education-entry').append(dates + location);
 	  $('.education-entry').append(major);
-	})
-}
+	});
+};
 
 projects.display = function() {
 	$('#projects').append(HTMLprojectStart);
@@ -214,7 +214,7 @@ projects.display = function() {
 	  $('.inner-entry-'+index).append(dates);
 	  $('.inner-entry-'+index).append(description);
 	});
-}
+};
 
 function inName(name) {
 	var nameArr = name.trim().split(' ');
@@ -260,12 +260,12 @@ init();
 
 $(document).on('click','#spanish', function(){
 		sessionStorage.setItem('lang', 'ES');
-		location.reload()
+		location.reload();
 });
 
 $(document).on('click','#english', function(){
 	  sessionStorage.setItem('lang', 'EN');
-		location.reload()
+		location.reload();
 });
 
 $('#mapDiv').append(googleMap);
